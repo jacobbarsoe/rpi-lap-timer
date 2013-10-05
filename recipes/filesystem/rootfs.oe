@@ -16,5 +16,6 @@ RDEPENDS += "\
 	ethtool tcpdump \
 	dosfstools-mkfs dosfstools-fsck \
         util/ltrace util/strace util/gdbserver libthread-db \
+	gpio-event-app \
 	"
 
