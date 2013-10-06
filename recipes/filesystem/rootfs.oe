@@ -17,6 +17,7 @@ RDEPENDS += "\
 	dosfstools-mkfs dosfstools-fsck \
         util/ltrace util/strace util/gdbserver libthread-db \
 	gpio-event-app \
-	wpa-supplicant \
+	wpa-supplicant firmware-ralink \
+	modules-init fsck-rootfs \
 	"
 

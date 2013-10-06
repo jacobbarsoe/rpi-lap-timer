@@ -1,0 +1,14 @@
+grep /dev/root /proc/mounts \
+     | grep -q " ext[2,3,4]" \
+     && CHECK=yes
+if [ "$CHECK" = "yes" ]; then
+   e2fsck -v -p /dev/root
+   ERR=$?
+   if [ "$ERR" -gt "4" ]; then
+        :        
+   elif [ "$ERR" -gt "3" ]; then
+        /bin/sh           
+   elif [ "$ERR" -gt "1" ]; then
+        reboot -f -d 1       
+   fi                          
+fi

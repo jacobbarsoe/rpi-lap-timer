@@ -1,0 +1,13 @@
+inherit sysvinit
+RECIPE_FLAGS = "fsck_rootfs_sysvinit_start"
+LICENSE = "MIT"
+RDEPENDS_${PN} = "util/e2fsck util/badblocks"
+SRC_URI = "file://fsck-rootfs"
+
+#Must be done after initial /dev /sys /proc setup, before any daemons with open
+#files in rootfs
+DEFAULT_USE_fsck_rootfs_sysvinit_start = "11"
+do_install() {
+    install -m 0755 -d ${D}${sysconfdir}
+    sysvinit_install_script ${SRCDIR}/fsck-rootfs
+}
